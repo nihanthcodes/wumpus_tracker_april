@@ -28,15 +28,17 @@ public class WumpusTracker {
     /** Returns the ID of the most dangerous room the player has visited */
     public int getMostDangerousVisitedRoom() {
         int max = 0;
+        int maxID = 0;
         for (int visit=0; visit<visitedRooms.size(); visit++){
             for (int roomNo=0; roomNo<roomArray.length; roomNo++){
                 if (visitedRooms.get(visit) == roomArray[roomNo].getID()){
                     if (roomArray[roomNo].getDangerLevel()>max){
                         max = roomArray[roomNo].getDangerLevel();
+                        maxID = roomArray[roomNo].getID();
                     }
                 }
             }
         }
-        return max;
+        return maxID;
     }
 }
